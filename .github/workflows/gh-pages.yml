@@ -1,0 +1,24 @@
+name: Deploy Amazon to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: ./Amazon
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
