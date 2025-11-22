@@ -19,7 +19,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload Amazon folder as Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        # update to v2 to avoid deprecated upload-artifact dependency
+        uses: actions/upload-pages-artifact@v2
         with:
           path: Amazon
 
